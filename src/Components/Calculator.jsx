@@ -22,7 +22,7 @@ const Calculator = () => {
 		{ id: "subtract", value: "-" },
 		{ id: "multiply", value: "*" },
 		{ id: "divide", value: "/" },
-		{ id: "decimal", value: "."},
+		{ id: "decimal", value: "." },
 		{ id: "clear", value: "AC" },
 	];
 
@@ -33,18 +33,18 @@ const Calculator = () => {
 	};
 
 	const result = () => {
-		switch(operation){
+		switch (operation) {
 			case "+":
 				setInput(parseInt(output) + parseInt(input));
 				break;
 			case "-":
 				setInput(parseInt(output) - parseInt(input));
-				break;	
+				break;
 		}
 	};
 
 	const outputResult = () => {
-		switch(operation){
+		switch (operation) {
 			case "+":
 				setOutput(parseInt(output) + parseInt(input));
 				break;
@@ -54,13 +54,13 @@ const Calculator = () => {
 			case "*":
 				setOutput(parseInt(output) * parseInt(input));
 			case "/":
-				setOutput(parseInt(output) / parseInt(input));	
+				setOutput(parseInt(output) / parseInt(input));
 		}
 	}
 
 
 	const calculate = (num) => {
-		if(operation){
+		if (operation) {
 			outputResult()
 		} else {
 			console.log("no hay op");
@@ -78,7 +78,7 @@ const Calculator = () => {
 
 	const updateDisplay = (value) => {
 
-		switch(value){
+		switch (value) {
 			case "AC":
 				clear();
 				break;
@@ -97,7 +97,7 @@ const Calculator = () => {
 				break;
 			default:
 				displayNum(value);
-				break;	
+				break;
 		}
 
 	};
@@ -105,20 +105,20 @@ const Calculator = () => {
 	return (
 		<div>
 			<main>
-			<div>
-				Input
-				<input id="display" readOnly value={input}/><br></br>
-				Output
-				<input readOnly value={output}/>
-			</div>
-			<div className="pad">
-				{
-				buttons.map((elem) => 
-					<button 
-						id={elem.id} 
-						onClick={()=>{updateDisplay(elem.value)}}
-						>{elem.value}</button>)}
-			</div>
+				<div>
+					Input
+					<input id="display" readOnly value={input} /><br></br>
+					Output
+					<input readOnly value={output} />
+				</div>
+				<div className="pad">
+					{
+						buttons.map((elem) =>
+							<button
+								id={elem.id}
+								onClick={() => { updateDisplay(elem.value) }}
+							>{elem.value}</button>)}
+				</div>
 			</main>
 		</div>
 	)
